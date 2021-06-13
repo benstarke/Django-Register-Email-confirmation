@@ -82,3 +82,7 @@ class ProfileView(UpdateView):
     form_class = ProfileForm
     success_url = reverse_lazy('home')
     template_name = 'commons/profile.html'
+
+
+def uploadcv(request):
+    pass
