@@ -1,10 +1,4 @@
 # How to Signup User and Send Confirmation Email in Django
-
-## Tutorial Link - https://studygyaan.com/django/how-to-signup-user-and-send-confirmation-email-in-django
-
-In this tutorial, you’ll learn how to create a Registration Form for User Signup. We’ll add more functionality by adding validation and sending a confirmation link on users’ email. With confirming account user cannot sign in. You can also find this tutorial code on GitHub.
-
-
 ### Setup
 1. Create a folder and put all the files inside it.
 2. Create a virtual environtment - `virtualenv env`
