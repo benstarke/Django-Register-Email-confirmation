@@ -6,10 +6,12 @@ from django.contrib.auth.models import User
 
 from django.contrib import messages
 from django.contrib.sites.shortcuts import get_current_site
+from django_user.settings import EMAIL_HOST_USER
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.template.loader import render_to_string
 from core.tokens import account_activation_token
+
 
 # Sign Up View
 class SignUpView(View):
@@ -29,7 +31,8 @@ class SignUpView(View):
             user.save()
 
             current_site = get_current_site(request)
-            subject = 'Activate Your MySite Account'
+            # current_site = domain
+            subject = 'Activate Your Job Recruitment Account'
             message = render_to_string('emails/account_activation_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -65,7 +68,8 @@ class ActivateAccount(View):
             user.profile.email_confirmed = True
             user.save()
             login(request, user)
-            messages.success(request, ('Your account have been confirmed.'))
+            msg = "Your account have been confirmed. Your uploaded CV has been received. Wait for confrimation after verification."
+            messages.success(request, (msg))
             return redirect('home')
         else:
             messages.warning(request, ('The confirmation link was invalid, possibly because it has already been used.'))
